@@ -9,10 +9,11 @@ public class Statek extends Transport{
         setRodzaj("Statek");
     }
     @Override
-    public void zaladuj(Kontener kontener){
+    public int zaladuj(Kontener kontener){
         if (kontenery.size() == ROZMIAR){
-            return;
+            return 0;
         }
         kontenery.add(kontener);
+        return ROZMIAR - kontenery.size();
     }
 }

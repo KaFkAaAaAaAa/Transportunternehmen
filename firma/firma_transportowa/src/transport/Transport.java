@@ -1,5 +1,4 @@
 package transport;
-
 import magazyn.Magazyn;
 import towar.Kontener;
 
@@ -16,7 +15,14 @@ public abstract class Transport {
         this.rodzaj = rodzaj;
     }
     public void przetransportuj(Magazyn z, Magazyn dokad){
+        System.out.printf("Transport z %s do %s. Rodzaj transportu %s \n", z, dokad, rodzaj);
 
     }
-    public abstract void zaladuj(Kontener kontener);
+    public abstract int zaladuj(Kontener kontener);
+    public Kontener rozladuj(){
+        if (kontenery.isEmpty()){
+            return null;
+        }
+        return kontenery.removeFirst();
+    }
 }
